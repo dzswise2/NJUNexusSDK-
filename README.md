@@ -631,7 +631,7 @@ colcon build --symlink-install --packages-up-to nexus_manage
 
 ## 许可证
 
-本项目为内部项目，仅供公司内部使用。
+本项目为南京大学特供版本，仅供南京大学内部研究与教学使用。
 
 ---
 
