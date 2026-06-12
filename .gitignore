@@ -1,1 +1,44 @@
+# Docker large files
 docker/*.tar.gz
+
+# colcon build artifacts
+build/
+install/
+log/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+*.cmake
+
+# Compiled objects and libraries
+*.o
+*.obj
+*.so
+*.a
+*.bin
+*.out
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Core dumps
+core
+*.core
+
+# ROS 2
+ament_cmake/
