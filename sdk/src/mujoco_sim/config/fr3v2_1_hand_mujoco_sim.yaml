@@ -1,7 +1,7 @@
 fr3v2_1_hand_simulator:
   ros__parameters:
     model_path: "robot_description/fr3v2_1_franka_hand/mjcf/fr3v2_1_franka_hand_sim.xml"
-    robot_name: "fr3v2_1"
+    robot_name: ""
     robot_type: "franka_hand"
     publish_rate: 500.0
     enable_viewer: true
