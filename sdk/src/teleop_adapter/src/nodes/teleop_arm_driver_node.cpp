@@ -13,9 +13,6 @@
  * Include
  ******************************************************************************/
 #include "teleop_adapter/nodes/detail/teleop_arm_driver_node_impl.hpp"
-#ifdef BUILD_Y1_ADAPTER
-#include "teleop_adapter/adapters/y1_arm_adapter.hpp"
-#endif
 #include "teleop_adapter/adapters/ar5_arm_adapter.hpp"
 #include "teleop_adapter/adapters/ar5_suction_cup_adapter.hpp"
 #include "teleop_adapter/adapters/ar5_gripper_adapter.hpp"
@@ -508,11 +505,6 @@ std::unique_ptr<DeviceAdapter> TeleopArmDriverNode::Impl::createAdapter(const Ar
             }
             // Teleop 适配器：使用串口对象
             adapter = std::make_unique<TeleopArmAdapter>(device_config, std::move(serial_port));
-#ifdef BUILD_Y1_ADAPTER
-        } else if (adapter_type_ == "y1") {
-            // Y1 适配器：按 y1_driver_node 的用法直接传串口名
-            adapter = std::make_unique<Y1ArmAdapter>(device_config, config.port);
-#endif
         } else if (adapter_type_ == "ar5") {
             // AR5 适配器：使用 Rokae SDK 力矩控制接口，需要 robot_ip 和 local_ip
             std::string robot_ip = config.port;  // port 字段复用为 robot_ip

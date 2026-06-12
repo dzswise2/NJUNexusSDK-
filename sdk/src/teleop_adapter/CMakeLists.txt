@@ -42,20 +42,6 @@ else()
 endif()
 message(STATUS "Target architecture: ${NEXUS_ARCH}")
 
-# ============================================
-# Y1 SDK availability — auto-detect, disable on aarch64 if library missing
-# ============================================
-set(Y1_SDK_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/external/imeta_y1/lib/${NEXUS_ARCH}")
-set(Y1_SDK_LIB "${Y1_SDK_LIB_DIR}/liby1_sdk.so")
-option(BUILD_Y1_ADAPTER "Build Y1 arm adapter (requires Y1 SDK)" ON)
-if(BUILD_Y1_ADAPTER AND NOT EXISTS "${Y1_SDK_LIB}")
-  message(WARNING "Y1 SDK library not found at ${Y1_SDK_LIB}. Disabling Y1 adapter.")
-  set(BUILD_Y1_ADAPTER OFF)
-endif()
-if(NOT BUILD_Y1_ADAPTER)
-  message(STATUS "Y1 adapter: DISABLED")
-endif()
-
 # Include directories
 include_directories(include)
 
@@ -87,33 +73,6 @@ target_include_directories(teleop_arm_adapter PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 target_link_libraries(teleop_arm_adapter device_adapter)
-
-# ============================================
-# Y1 Arm Adapter (CAN-driven, using Y1 SDK)
-# ============================================
-if(BUILD_Y1_ADAPTER)
-  add_library(y1_arm_adapter src/adapters/y1_arm_adapter.cpp)
-  target_include_directories(y1_arm_adapter PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>
-    ${CMAKE_CURRENT_SOURCE_DIR}/external/imeta_y1
-  )
-  target_link_libraries(y1_arm_adapter device_adapter teleop_arm_adapter)
-  ament_target_dependencies(y1_arm_adapter rclcpp std_msgs sensor_msgs infra_msg ament_index_cpp)
-
-  # Link external Y1 SDK if available
-  message(STATUS "Linking Y1 SDK library (${NEXUS_ARCH}): ${Y1_SDK_LIB}")
-  target_link_libraries(y1_arm_adapter ${Y1_SDK_LIB})
-  find_library(GLOG_LIB glog)
-  if(GLOG_LIB)
-    message(STATUS "Linking glog: ${GLOG_LIB}")
-    target_link_libraries(y1_arm_adapter ${GLOG_LIB})
-  else()
-    message(WARNING "glog library not found. Install libglog-dev or provide libglog.so to satisfy SDK logging symbols.")
-  endif()
-endif()
-
-# 移除 y1_adapter 目标：不编译 src/adapters/y1_adapter.cpp
 
 # ============================================
 # AR5 Arm Adapter (Rokae SDK torque control, MIT formula)
@@ -215,15 +174,10 @@ add_library(teleop_arm_driver_node src/nodes/teleop_arm_driver_node.cpp)
 target_include_directories(teleop_arm_driver_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
-  ${CMAKE_CURRENT_SOURCE_DIR}/external/imeta_y1
   ${AR5_SDK_INCLUDE}
 )
-set(TELEOP_DRIVER_LIBS teleop_arm_adapter ar5_arm_adapter ar5_suction_cup_adapter ar5_gripper_adapter)
-if(BUILD_Y1_ADAPTER)
-  list(APPEND TELEOP_DRIVER_LIBS y1_arm_adapter)
-  target_compile_definitions(teleop_arm_driver_node PUBLIC BUILD_Y1_ADAPTER)
-endif()
-target_link_libraries(teleop_arm_driver_node ${TELEOP_DRIVER_LIBS})
+target_link_libraries(teleop_arm_driver_node
+  teleop_arm_adapter ar5_arm_adapter ar5_suction_cup_adapter ar5_gripper_adapter)
 ament_target_dependencies(teleop_arm_driver_node rclcpp std_msgs sensor_msgs geometry_msgs infra_msg)
 
 add_executable(teleop_arm_driver_main src/nodes/teleop_arm_driver_main.cpp)
@@ -237,12 +191,10 @@ set_target_properties(teleop_arm_driver_main PROPERTIES
   BUILD_RPATH "${AR5_SDK_LIB_DIR}"
 )
 
-## 独立 Y1 driver_node / y1_driver_main 已被二合一节点取代，如需恢复可从历史版本还原
-
 # ============================================
 # Install
 # ============================================
-set(INSTALL_TARGETS
+install(TARGETS
   serial_port
   device_adapter
   teleop_arm_adapter
@@ -250,31 +202,10 @@ set(INSTALL_TARGETS
   ar5_suction_cup_adapter
   ar5_gripper_adapter
   teleop_arm_driver_node
-)
-if(BUILD_Y1_ADAPTER)
-  list(APPEND INSTALL_TARGETS y1_arm_adapter)
-endif()
-install(TARGETS ${INSTALL_TARGETS}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
-
-# 安装 Y1 SDK 头文件与动态库（若存在）
-if(BUILD_Y1_ADAPTER)
-  if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/external/imeta_y1/y1_sdk_interface.h")
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/external/imeta_y1/y1_sdk_interface.h
-      DESTINATION include/teleop_adapter/external/imeta_y1)
-  endif()
-  if(EXISTS "${Y1_SDK_LIB}")
-    install(FILES ${Y1_SDK_LIB} DESTINATION lib)
-    # Install SONAME symlink (liby1_sdk_x64.so) so the runtime linker can find it
-    set(Y1_SDK_SONAME_LINK "${Y1_SDK_LIB_DIR}/liby1_sdk_x64.so")
-    if(EXISTS "${Y1_SDK_SONAME_LINK}")
-      install(FILES ${Y1_SDK_SONAME_LINK} DESTINATION lib)
-    endif()
-  endif()
-endif()
 
 # 安装 Rokae AR5 SDK 头文件与动态库（若存在）
 if(EXISTS "${AR5_SDK_INCLUDE}/rokae")
