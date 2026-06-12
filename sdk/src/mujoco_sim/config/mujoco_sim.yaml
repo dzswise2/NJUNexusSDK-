@@ -1,0 +1,42 @@
+mujoco_simulator:
+  ros__parameters:
+    # Model path - relative to package share directory
+    # Format: robot_description/<robot>_description/mjcf/<model>.xml
+    model_path: "robot_description/y1_description/mjcf/y1_with_gripper.xml"
+    
+    # robot name，用来作为 topic 前缀，比如 /my_robot/rt/teleop/...
+    robot_name: "y1_master"
+    
+    # Robot type for gripper mapping logic
+    # Supported types: y1, y1_master, y1_slave, nexus-arm, nexus_arm, piper, generic
+    # For robots not in the list, it will use identity mapping (no conversion)
+    robot_type: "y1"
+
+    # joint_effort_source: mj_inverse  # 可选：逆动力学力矩，用于与 Pinocchio tau_model 对齐验证（默认 actuator_force）
+
+    # Publishing rate in Hz
+    publish_rate: 500.0
+    
+    # Enable MuJoCo viewer window
+    enable_viewer: true
+    
+    # Arm status publishing rate in Hz
+    arm_status_rate: 10.0
+
+    # Topic names
+    joint_mit_control_topic: '/teleop/table_arm/joint_cmd'
+    joint_state_topic: '/mujoco/joint_states'
+    status_topic: '/teleop/table_arm/status'
+    end_pose_topic: '/teleop/table_arm/end_pose'
+
+    # Gripper mapping configuration
+    # For Y1 robot: Joint7 is a revolute joint in real robot but prismatic in simulation
+    # For other robots: set enable_gripper_mapping to false or use 'generic' robot_type
+    enable_gripper_mapping: true
+    gripper_joint_index: 6  # joint7 is at index 6 (0-based indexing)
+    
+    # End effector site configuration
+    # Set enable_end_pose to false if the robot's MJCF/URDF doesn't have a site marker
+    enable_end_pose: true
+    ee_site_name: 'ee_link6'
+

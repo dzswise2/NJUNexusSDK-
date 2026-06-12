@@ -1,0 +1,39 @@
+ar5_08l_suction_cup_simulator:
+  ros__parameters:
+    # Model path - relative to package share directory
+    model_path: "robot_description/AR5-5_08L-W4C4A6-ZY2_with_suction_cup/mjcf/AR5-5_08L-W4C4A6-ZY2_with_suction_cup.xml"
+
+    # robot name，用来作为 topic 前缀，比如 /my_robot/rt/teleop/...
+    robot_name: "ar5_08l"
+
+    # Robot type for gripper mapping logic
+    # ar5_suction_cup → IdentityGripperMapper + MIT bypass: revolute in both sim and real
+    robot_type: "ar5_suction_cup"
+
+    # Publishing rate in Hz
+    publish_rate: 500.0
+
+    # Enable MuJoCo viewer window
+    enable_viewer: true
+
+    # Arm status publishing rate in Hz
+    arm_status_rate: 10.0
+
+    # Topic names
+    joint_mit_control_topic: '/robot/joint_cmd'
+    joint_state_topic: '/robot/joint_states'
+    status_topic: '/robot/arm_status'
+    end_pose_topic: '/robot/end_pose'
+
+    # Gripper mapping configuration
+    # suction cup joint (actuator index 7) — revolute↔revolute, identity mapping
+    enable_gripper_mapping: true
+    gripper_joint_index: 7
+
+    # End effector site configuration
+    # No ee_site defined in MJCF
+    enable_end_pose: false
+    ee_site_name: 'ee_site'
+
+    # JointState.effort 数据来源
+    joint_effort_source: actuator_force

@@ -1,0 +1,160 @@
+actuators:
+  AR5-5_08L-W4C4A6-ZY2_joint_1:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -108.0
+    - 108.0
+    forcerange:
+    - -108.0
+    - 108.0
+  AR5-5_08L-W4C4A6-ZY2_joint_2:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -108.0
+    - 108.0
+    forcerange:
+    - -108.0
+    - 108.0
+  AR5-5_08L-W4C4A6-ZY2_joint_3:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -66.0
+    - 66.0
+    forcerange:
+    - -66.0
+    - 66.0
+  AR5-5_08L-W4C4A6-ZY2_joint_4:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -66.0
+    - 66.0
+    forcerange:
+    - -66.0
+    - 66.0
+  AR5-5_08L-W4C4A6-ZY2_joint_5:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -19.0
+    - 19.0
+    forcerange:
+    - -19.0
+    - 19.0
+  AR5-5_08L-W4C4A6-ZY2_joint_6:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -19.0
+    - 19.0
+    forcerange:
+    - -19.0
+    - 19.0
+  AR5-5_08L-W4C4A6-ZY2_joint_7:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -19.0
+    - 19.0
+    forcerange:
+    - -19.0
+    - 19.0
+  AR5-5_08L-W4C4A6-ZY2_joint_suction_cup:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -5.0
+    - 5.0
+    forcerange:
+    - -5.0
+    - 5.0
+joint_properties:
+  AR5-5_08L-W4C4A6-ZY2_joint_1:
+    damping: 5.4
+    frictionloss: 1.08
+    armature: 0.108
+  AR5-5_08L-W4C4A6-ZY2_joint_2:
+    damping: 5.4
+    frictionloss: 1.08
+    armature: 0.108
+  AR5-5_08L-W4C4A6-ZY2_joint_3:
+    damping: 3.3
+    frictionloss: 0.66
+    armature: 0.066
+  AR5-5_08L-W4C4A6-ZY2_joint_4:
+    damping: 3.3
+    frictionloss: 0.66
+    armature: 0.066
+  AR5-5_08L-W4C4A6-ZY2_joint_5:
+    damping: 0.95
+    frictionloss: 0.19
+    armature: 0.019
+  AR5-5_08L-W4C4A6-ZY2_joint_6:
+    damping: 0.95
+    frictionloss: 0.19
+    armature: 0.019
+  AR5-5_08L-W4C4A6-ZY2_joint_7:
+    damping: 0.95
+    frictionloss: 0.19
+    armature: 0.019
+  AR5-5_08L-W4C4A6-ZY2_joint_suction_cup:
+    damping: 0.25
+    frictionloss: 0.05
+    armature: 0.005
+scene:
+  timestep: 0.002
+  gravity:
+  - 0
+  - 0
+  - -9.81
+  lighting: true
+  ground: true
+geom_properties:
+  base_link:
+    contype: 0
+    conaffinity: 0
+    density: 0
+    group: 1
+  AR5-5_08L-W4C4A6-ZY2_link_1:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_2:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_3:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_4:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_5:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_6:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_7:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  AR5-5_08L-W4C4A6-ZY2_link_suction_cup:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0

@@ -1,0 +1,165 @@
+actuators:
+  fr3v2_1_joint1:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -87.0
+    - 87.0
+    forcerange:
+    - -87.0
+    - 87.0
+  fr3v2_1_joint2:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -87.0
+    - 87.0
+    forcerange:
+    - -87.0
+    - 87.0
+  fr3v2_1_joint3:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -87.0
+    - 87.0
+    forcerange:
+    - -87.0
+    - 87.0
+  fr3v2_1_joint4:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -87.0
+    - 87.0
+    forcerange:
+    - -87.0
+    - 87.0
+  fr3v2_1_joint5:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -12.0
+    - 12.0
+    forcerange:
+    - -12.0
+    - 12.0
+  fr3v2_1_joint6:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -12.0
+    - 12.0
+    forcerange:
+    - -12.0
+    - 12.0
+  fr3v2_1_joint7:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -12.0
+    - 12.0
+    forcerange:
+    - -12.0
+    - 12.0
+  fr3v2_1_finger_joint1:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -100.0
+    - 100.0
+    forcerange:
+    - -100.0
+    - 100.0
+joint_properties:
+  fr3v2_1_joint1:
+    damping: 4.35
+    frictionloss: 0.87
+    armature: 0.087
+  fr3v2_1_joint2:
+    damping: 4.35
+    frictionloss: 0.87
+    armature: 0.087
+  fr3v2_1_joint3:
+    damping: 4.35
+    frictionloss: 0.87
+    armature: 0.087
+  fr3v2_1_joint4:
+    damping: 4.35
+    frictionloss: 0.87
+    armature: 0.087
+  fr3v2_1_joint5:
+    damping: 0.6
+    frictionloss: 0.12
+    armature: 0.012
+  fr3v2_1_joint6:
+    damping: 0.6
+    frictionloss: 0.12
+    armature: 0.012
+  fr3v2_1_joint7:
+    damping: 0.6
+    frictionloss: 0.12
+    armature: 0.012
+  fr3v2_1_finger_joint1:
+    damping: 10.0
+    frictionloss: 2.0
+    armature: 1.0
+scene:
+  timestep: 0.002
+  gravity:
+  - 0
+  - 0
+  - -9.81
+  lighting: true
+  ground: true
+geom_properties:
+  base_link:
+    contype: 0
+    conaffinity: 0
+    density: 0
+    group: 1
+  fr3v2_1_link1:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_link2:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_link3:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_link4:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_link5:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_link6:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_link7:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_finger_link1:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  fr3v2_1_finger_link2:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="y1_slave">
+  <option timestep="0.002" gravity="0 0 -9.81" />
+  
+  <default>
+    <joint damping="0.0" armature="0.0" frictionloss="0.0" />
+    <geom friction="1.0 0.005 0.0001" solimp="0.9 0.95 0.001" solref="0.02 1" />
+  </default>
+  
+  <visual>
+    <headlight ambient="0.5 0.5 0.5" />
+  </visual>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0.1 0.2 0.3" rgb2="0.2 0.3 0.4" />
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0.2" />
+  </asset>
+  <include file="y1_with_gripper_base.xml" />
+  <worldbody>
+    <light name="top" pos="0 0 2" dir="0 0 -1" directional="true" />
+    <geom name="ground" type="plane" size="0 0 0.05" material="grid" condim="3" />
+  </worldbody>
+  
+  <!-- 夹爪耦合约束：joint8 跟随 joint7 镜像运动 -->
+  <equality>
+    <joint name="gripper_coupling" joint1="joint7" joint2="joint8" polycoef="0 -1 0 0 0" />
+  </equality>
+  
+  <actuator>
+    <!-- 机械臂 6 个关节 -->
+    <motor name="act_joint1" joint="joint1" gear="1" ctrlrange="-30.0 30.0" forcerange="-30.0 30.0" />
+    <motor name="act_joint2" joint="joint2" gear="1" ctrlrange="-100.0 100.0" forcerange="-100.0 100.0" />
+    <motor name="act_joint3" joint="joint3" gear="1" ctrlrange="-30.0 30.0" forcerange="-30.0 30.0" />
+    <motor name="act_joint4" joint="joint4" gear="1" ctrlrange="-10.0 10.0" forcerange="-10.0 10.0" />
+    <motor name="act_joint5" joint="joint5" gear="1" ctrlrange="-10.0 10.0" forcerange="-10.0 10.0" />
+    <motor name="act_joint6" joint="joint6" gear="1" ctrlrange="-10.0 10.0" forcerange="-10.0 10.0" />
+    
+    <!-- 夹爪：只控制 joint7，joint8 通过 equality 约束自动跟随 -->
+    <motor name="act_gripper" joint="joint7" gear="1" ctrlrange="-3.0 3.0" forcerange="-3.0 3.0" />
+  </actuator>
+</mujoco>

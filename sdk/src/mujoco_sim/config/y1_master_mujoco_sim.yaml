@@ -1,0 +1,39 @@
+mujoco_simulator_master:
+  ros__parameters:
+    # Model path - relative to package share directory
+    model_path: "robot_description/y1_description/mjcf/y1_master.xml"
+    
+    # robot name，用来作为 topic 前缀，比如 /my_robot/rt/teleop/...
+    robot_name: "y1_master"
+    
+    # Robot type for gripper mapping logic
+    # Y1 robots need stroke-to-angle conversion for gripper
+    robot_type: "y1"
+
+    # JointState.effort：默认 actuator_force；验证 τ_meas≈tau_model 时可改为 mj_inverse（见 EE_FORCE_FEEDBACK_DYNAMICS_MODE.md）
+    # joint_effort_source: mj_inverse
+
+    # Publishing rate in Hz
+    publish_rate: 500.0
+    
+    # Enable MuJoCo viewer window
+    enable_viewer: false
+    
+    # Arm status publishing rate in Hz
+    arm_status_rate: 10.0
+
+    # Topic names
+    joint_mit_control_topic: '/teleop/joint_cmd'
+    joint_state_topic: '/teleop/joint_states'
+    status_topic: '/teleop/arm_status'
+    end_pose_topic: '/teleop/end_pose'
+
+    # Gripper mapping configuration (for Y1 robot)
+    # Joint7 is a revolute joint in real robot but prismatic in simulation
+    enable_gripper_mapping: true
+    gripper_joint_index: 6  # joint7 is at index 6 (0-based indexing)
+    
+    # End effector site configuration (Y1 has ee_link6 site defined in MJCF)
+    enable_end_pose: true
+    ee_site_name: 'ee_link6'
+

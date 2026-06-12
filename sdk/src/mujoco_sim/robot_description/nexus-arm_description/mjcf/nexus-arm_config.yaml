@@ -1,0 +1,142 @@
+actuators:
+  link1_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -9.0
+    - 9.0
+    forcerange:
+    - -9.0
+    - 9.0
+  link2_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -9.0
+    - 9.0
+    forcerange:
+    - -9.0
+    - 9.0
+  link3_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -9.0
+    - 9.0
+    forcerange:
+    - -9.0
+    - 9.0
+  link4_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -0.8
+    - 0.8
+    forcerange:
+    - -0.8
+    - 0.8
+  link5_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -0.8
+    - 0.8
+    forcerange:
+    - -0.8
+    - 0.8
+  link6_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -0.8
+    - 0.8
+    forcerange:
+    - -0.8
+    - 0.8
+  gripper_Joint:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -0.8
+    - 0.8
+    forcerange:
+    - -0.8
+    - 0.8
+joint_properties:
+  link1_Joint:
+    damping: 0.45
+    frictionloss: 0.09
+    armature: 0.009
+  link2_Joint:
+    damping: 0.45
+    frictionloss: 0.09
+    armature: 0.009
+  link3_Joint:
+    damping: 0.45
+    frictionloss: 0.09
+    armature: 0.009
+  link4_Joint:
+    damping: 0.05
+    frictionloss: 0.01
+    armature: 0.0008
+  link5_Joint:
+    damping: 0.05
+    frictionloss: 0.01
+    armature: 0.0008
+  link6_Joint:
+    damping: 0.05
+    frictionloss: 0.01
+    armature: 0.0008
+  gripper_Joint:
+    damping: 0.08
+    frictionloss: 0.016
+    armature: 0.008
+scene:
+  timestep: 0.002
+  gravity:
+  - 0
+  - 0
+  - -9.81
+  lighting: true
+  ground: true
+geom_properties:
+  base_link:
+    contype: 0
+    conaffinity: 0
+    density: 0
+    group: 1
+  link1_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  link2_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  link3_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  link4_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  link5_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  link6_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  gripper_Joint:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0

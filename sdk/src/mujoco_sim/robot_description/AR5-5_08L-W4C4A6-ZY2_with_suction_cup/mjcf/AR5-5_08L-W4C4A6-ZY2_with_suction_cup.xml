@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="AR5-5_08L-W4C4A6-ZY2_with_suction_cup">
+  <option timestep="0.002" gravity="0 0 -9.81" />
+  <visual>
+    <headlight ambient="0.5 0.5 0.5" />
+  </visual>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0.1 0.2 0.3" rgb2="0.2 0.3 0.4" />
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0.2" />
+  </asset>
+  <include file="AR5-5_08L-W4C4A6-ZY2_with_suction_cup_base.xml" />
+  <worldbody>
+    <light name="top" pos="0 0 2" dir="0 0 -1" directional="true" />
+    <geom name="ground" type="plane" size="0 0 0.05" material="grid" condim="3" />
+  </worldbody>
+  <actuator>
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_1" joint="AR5-5_08L-W4C4A6-ZY2_joint_1" gear="1" ctrlrange="-108.0 108.0" forcerange="-108.0 108.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_2" joint="AR5-5_08L-W4C4A6-ZY2_joint_2" gear="1" ctrlrange="-108.0 108.0" forcerange="-108.0 108.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_3" joint="AR5-5_08L-W4C4A6-ZY2_joint_3" gear="1" ctrlrange="-66.0 66.0" forcerange="-66.0 66.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_4" joint="AR5-5_08L-W4C4A6-ZY2_joint_4" gear="1" ctrlrange="-66.0 66.0" forcerange="-66.0 66.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_5" joint="AR5-5_08L-W4C4A6-ZY2_joint_5" gear="1" ctrlrange="-19.0 19.0" forcerange="-19.0 19.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_6" joint="AR5-5_08L-W4C4A6-ZY2_joint_6" gear="1" ctrlrange="-19.0 19.0" forcerange="-19.0 19.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_7" joint="AR5-5_08L-W4C4A6-ZY2_joint_7" gear="1" ctrlrange="-19.0 19.0" forcerange="-19.0 19.0" />
+    <motor name="act_AR5-5_08L-W4C4A6-ZY2_joint_suction_cup" joint="AR5-5_08L-W4C4A6-ZY2_joint_suction_cup" gear="1" ctrlrange="-5.0 5.0" forcerange="-5.0 5.0" />
+  </actuator>
+</mujoco>
