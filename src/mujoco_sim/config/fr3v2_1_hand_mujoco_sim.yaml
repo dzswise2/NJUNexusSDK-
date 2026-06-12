@@ -1,0 +1,17 @@
+fr3v2_1_hand_simulator:
+  ros__parameters:
+    model_path: "robot_description/fr3v2_1_franka_hand/mjcf/fr3v2_1_franka_hand_sim.xml"
+    robot_name: "fr3v2_1"
+    robot_type: "franka_hand"
+    publish_rate: 500.0
+    enable_viewer: true
+    arm_status_rate: 10.0
+    joint_mit_control_topic: '/robot/joint_cmd'
+    joint_state_topic: '/robot/joint_states'
+    status_topic: '/robot/arm_status'
+    end_pose_topic: '/robot/end_pose'
+    enable_gripper_mapping: true
+    gripper_joint_index: 7
+    enable_end_pose: false
+    ee_site_name: 'fr3v2_1_hand_tcp'
+    joint_effort_source: actuator_force

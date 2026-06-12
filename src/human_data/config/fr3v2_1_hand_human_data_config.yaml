@@ -1,0 +1,35 @@
+/**:
+  ros__parameters:
+    robot_name: "fr3v2_1"
+    robot_type: "franka_hand"
+    urdf_path: "package://human_data/urdf/fr3v2_1_franka_hand.urdf"
+    robot_base_frame: "base"
+    model_configuration: ["right_wrist", "right_end_effector"]
+    publish_rate: 200.0
+
+    model_configs:
+      right_wrist:
+        type: "ee"
+        base_link: "base"
+        end_effector_link: "fr3v2_1_hand_tcp"
+        joint_indices: [0, 1, 2, 3, 4, 5, 6]
+        joint_names:
+          - "fr3v2_1_joint1"
+          - "fr3v2_1_joint2"
+          - "fr3v2_1_joint3"
+          - "fr3v2_1_joint4"
+          - "fr3v2_1_joint5"
+          - "fr3v2_1_joint6"
+          - "fr3v2_1_joint7"
+        base_position_matrix: [1.0, 0.0, 0.0, 0.0,
+                              0.0, 1.0, 0.0, 0.0,
+                              0.0, 0.0, 1.0, 0.0,
+                              0.0, 0.0, 0.0, 1.0]
+      right_end_effector:
+        type: "gripper"
+        joint_indices: [7]
+        joint_names: ["fr3v2_1_finger_joint1"]
+
+    joint_state_topic: "/robot/joint_states"
+    human_data_topic: "/robot/human_data"
+    pedal_state_topic: "/robot/pedal_state"

@@ -1,0 +1,38 @@
+mujoco_simulator:
+  ros__parameters:
+    # Model path - relative to package share directory
+    model_path: "robot_description/piper_description/mjcf/piper_description.xml"
+    
+    # robot name，用来作为 topic 前缀，比如 /my_robot/rt/teleop/...
+    robot_name: "piper"
+    
+    # Robot type for gripper mapping logic
+    # Supported types: y1, y1_master, y1_slave, nexus-arm, nexus_arm, piper, generic
+    # Piper uses identity mapping (no conversion needed)
+    robot_type: "piper"
+
+    # Publishing rate in Hz
+    publish_rate: 500.0
+    
+    # Enable MuJoCo viewer window
+    enable_viewer: true
+    
+    # Arm status publishing rate in Hz
+    arm_status_rate: 10.0
+
+    # Topic names
+    joint_mit_control_topic: '/teleop/joint_cmd'
+    joint_state_topic: '/teleop/joint_states'
+    status_topic: '/teleop/arm_status'
+    end_pose_topic: '/teleop/end_pose'
+
+    # Gripper mapping configuration
+    # For piper, gripper mapping is disabled (identity mapping)
+    enable_gripper_mapping: false
+    gripper_joint_index: 6  # gripper joint index (0-based indexing)
+
+    # End effector site configuration
+    # Set enable_end_pose to false if the robot's MJCF doesn't have a site marker
+    enable_end_pose: false
+    ee_site_name: 'ee_site'  # Not used when enable_end_pose is false
+

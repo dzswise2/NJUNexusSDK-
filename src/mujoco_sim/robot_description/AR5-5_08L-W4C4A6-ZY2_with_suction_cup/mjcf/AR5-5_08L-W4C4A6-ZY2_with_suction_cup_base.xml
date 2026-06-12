@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mujoco model="AR5-5_08L-W4C4A6-ZY2_with_suction_cup">
+  <compiler angle="radian" meshdir="../meshes" />
+  <asset>
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_base" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link1" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link1.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link2" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link2.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link3" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link3.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link4" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link4.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link5" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link5.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link6" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link6.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link7" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link7.stl" scale="0.001 0.001 0.001" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link_suction_cup_base" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link_suction_cup_base.stl" />
+    <mesh name="AR5-5_08L-W4C4A6-ZY2_link_suction_cup" content_type="model/stl" file="AR5-5_08L-W4C4A6-ZY2_link_suction_cup.stl" />
+  </asset>
+  <worldbody>
+    <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_base" contype="0" conaffinity="0" density="0" group="1" />
+    <body name="AR5-5_08L-W4C4A6-ZY2_link1">
+      <inertial pos="-0.000184 0.001568 0.172804" quat="0.697803 0.716288 0.00135445 -0.00101895" mass="2.166" diaginertia="0.00332249 0.0031773 0.00260865" />
+      <joint name="AR5-5_08L-W4C4A6-ZY2_joint_1" pos="0 0 0" axis="0 0 1" range="-3.1067 3.1067" actuatorfrcrange="-108 108" damping="5.4" frictionloss="1.08" armature="0.108" />
+      <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link1" />
+      <body name="AR5-5_08L-W4C4A6-ZY2_link2" pos="0 0 0.1745">
+        <inertial pos="-1.7e-05 0.001795 0.106689" quat="0.997874 -0.0651569 0.000290112 0.0013811" mass="1.903" diaginertia="0.00779804 0.00681282 0.00299043" />
+        <joint name="AR5-5_08L-W4C4A6-ZY2_joint_2" pos="0 0 0" axis="0 1 0" range="-2.0944 2.0944" actuatorfrcrange="-108 108" damping="5.4" frictionloss="1.08" armature="0.108" />
+        <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link2" />
+        <body name="AR5-5_08L-W4C4A6-ZY2_link3" pos="0 0 0.332">
+          <inertial pos="0.008227 -0.001273 -0.020611" quat="0.998864 -0.00405403 -0.0470609 0.00630398" mass="1.845" diaginertia="0.00644578 0.00591604 0.00273281" />
+          <joint name="AR5-5_08L-W4C4A6-ZY2_joint_3" pos="0 0 0" axis="0 0 1" range="-3.1067 3.1067" actuatorfrcrange="-66 66" damping="3.3" frictionloss="0.66" armature="0.066" />
+          <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link3" />
+          <body name="AR5-5_08L-W4C4A6-ZY2_link4" pos="0.0105 0 0">
+            <inertial pos="-0.009242 -0.002172 0.084042" quat="0.993349 0.0969184 0.0408445 -0.0468543" mass="1.037" diaginertia="0.00295956 0.00248453 0.00135638" />
+            <joint name="AR5-5_08L-W4C4A6-ZY2_joint_4" pos="0 0 0" axis="0 1 0" range="-1.0472 2.5307" actuatorfrcrange="-66 66" damping="3.3" frictionloss="0.66" armature="0.066" />
+            <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link4" />
+            <body name="AR5-5_08L-W4C4A6-ZY2_link5" pos="-0.0105 0 0.278">
+              <inertial pos="-0.000756 0.000723 -0.086764" quat="0.995558 0.073305 0.0272965 -0.0524033" mass="1.279" diaginertia="0.00242017 0.0020079 0.00157481" />
+              <joint name="AR5-5_08L-W4C4A6-ZY2_joint_5" pos="0 0 0" axis="0 0 1" range="-3.1067 3.1067" actuatorfrcrange="-19 19" damping="0.95" frictionloss="0.19" armature="0.019" />
+              <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link5" />
+              <body name="AR5-5_08L-W4C4A6-ZY2_link6">
+                <inertial pos="-0.005104 0.000251 5.6e-05" quat="-0.0173238 0.709521 -0.0127916 0.704356" mass="0.906" diaginertia="0.000758998 0.000747795 0.000614277" />
+                <joint name="AR5-5_08L-W4C4A6-ZY2_joint_6" pos="0 0 0" axis="0 1 0" range="-0.9599 0.9599" actuatorfrcrange="-19 19" damping="0.95" frictionloss="0.19" armature="0.019" />
+                <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link6" />
+                <body name="AR5-5_08L-W4C4A6-ZY2_link7">
+                  <inertial pos="-0.001562 -0.000366 0.05392" mass="0.33" fullinertia="0.00046062 0.00068652 0.00043943 0.00000269 0.00003859 -0.00000095" />
+                  <joint name="AR5-5_08L-W4C4A6-ZY2_joint_7" pos="0 0 0" axis="1 0 0" range="-0.9599 0.9599" actuatorfrcrange="-19 19" damping="0.95" frictionloss="0.19" armature="0.019" />
+                  <geom type="mesh" rgba="1 1 1 1" mesh="AR5-5_08L-W4C4A6-ZY2_link7" />
+                  <body name="AR5-5_08L-W4C4A6-ZY2_link_suction_cup_base" pos="0 0 0.09"><inertial pos="-0.01016387 0.00166764 0.04862591" mass="1.00422732634617" fullinertia="0.00381085 0.00432244 0.00158135 0.00006744 -0.00054609 0.00004154" /><geom type="mesh" rgba="0.2 0.2 0.2 1" mesh="AR5-5_08L-W4C4A6-ZY2_link_suction_cup_base" /><body name="AR5-5_08L-W4C4A6-ZY2_link_suction_cup" pos="-0.0035 0 0.2145">
+                    <inertial pos="0 0 0.00318644" mass="0.0423726736538326" fullinertia="0.00002709 0.00000463 0.00002573 0 0 0" />
+                    <joint name="AR5-5_08L-W4C4A6-ZY2_joint_suction_cup" pos="0 0 0" axis="0 1 0" range="-1.5708 1.5708" actuatorfrcrange="-5 5" damping="0.25" frictionloss="0.05" armature="0.005" />
+                    <geom type="mesh" rgba="0.2 0.2 0.2 1" mesh="AR5-5_08L-W4C4A6-ZY2_link_suction_cup" contype="1" conaffinity="15" density="0" group="0" />
+                  </body>
+                </body></body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,178 @@
+actuators:
+  left_arm_joint1:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -55.0
+    - 55.0
+    forcerange:
+    - -55.0
+    - 55.0
+  left_arm_joint2:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -55.0
+    - 55.0
+    forcerange:
+    - -55.0
+    - 55.0
+  left_arm_joint3:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -25.0
+    - 25.0
+    forcerange:
+    - -25.0
+    - 25.0
+  left_arm_joint4:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -25.0
+    - 25.0
+    forcerange:
+    - -25.0
+    - 25.0
+  left_arm_joint5:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -18.0
+    - 18.0
+    forcerange:
+    - -18.0
+    - 18.0
+  left_arm_joint6:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -18.0
+    - 18.0
+    forcerange:
+    - -18.0
+    - 18.0
+  left_arm_joint7:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -18.0
+    - 18.0
+    forcerange:
+    - -18.0
+    - 18.0
+  left_gripper_finger_joint1:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -100.0
+    - 100.0
+    forcerange:
+    - -100.0
+    - 100.0
+  left_gripper_finger_joint2:
+    type: motor
+    gear: 1
+    ctrlrange:
+    - -100.0
+    - 100.0
+    forcerange:
+    - -100.0
+    - 100.0
+joint_properties:
+  left_arm_joint1:
+    damping: 2.75
+    frictionloss: 0.55
+    armature: 0.055
+  left_arm_joint2:
+    damping: 2.75
+    frictionloss: 0.55
+    armature: 0.055
+  left_arm_joint3:
+    damping: 1.25
+    frictionloss: 0.25
+    armature: 0.025
+  left_arm_joint4:
+    damping: 1.25
+    frictionloss: 0.25
+    armature: 0.025
+  left_arm_joint5:
+    damping: 0.9
+    frictionloss: 0.18
+    armature: 0.018
+  left_arm_joint6:
+    damping: 0.9
+    frictionloss: 0.18
+    armature: 0.018
+  left_arm_joint7:
+    damping: 0.9
+    frictionloss: 0.18
+    armature: 0.018
+  left_gripper_finger_joint1:
+    damping: 10.0
+    frictionloss: 2.0
+    armature: 1.0
+  left_gripper_finger_joint2:
+    damping: 10.0
+    frictionloss: 2.0
+    armature: 1.0
+scene:
+  timestep: 0.002
+  gravity:
+  - 0
+  - 0
+  - -9.81
+  lighting: true
+  ground: true
+geom_properties:
+  base_link:
+    contype: 0
+    conaffinity: 0
+    density: 0
+    group: 1
+  left_arm_link1:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_arm_link2:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_arm_link3:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_arm_link4:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_arm_link5:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_arm_link6:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_arm_link7:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_gripper_finger_link1:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0
+  left_gripper_finger_link2:
+    contype: 1
+    conaffinity: 15
+    density: 0
+    group: 0

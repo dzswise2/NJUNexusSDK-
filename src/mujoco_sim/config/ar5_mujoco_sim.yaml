@@ -1,0 +1,45 @@
+ar5_simulator:
+  ros__parameters:
+    # Model path - relative to package share directory
+    model_path: "robot_description/ar5_5_07l_w4Cc4a2/mjcf/AR5-5_07L-W4C4A2.xml"
+    
+    # robot name，用来作为 topic 前缀，比如 /my_robot/rt/teleop/...
+    robot_name: "ar5"
+    
+    # Robot type for gripper mapping logic
+    # AR5 has no gripper, use generic type
+    robot_type: "generic"
+
+    # Publishing rate in Hz
+    publish_rate: 500.0
+    
+    # Enable MuJoCo viewer window
+    enable_viewer: true
+    
+    # Arm status publishing rate in Hz
+    arm_status_rate: 10.0
+
+    # Topic names
+    joint_mit_control_topic: '/robot/joint_cmd'
+    joint_state_topic: '/robot/joint_states'
+    status_topic: '/robot/arm_status'
+    end_pose_topic: '/robot/end_pose'
+
+    # Gripper mapping configuration
+    # AR5 has no gripper, disable gripper mapping
+    enable_gripper_mapping: false
+    gripper_joint_index: -1
+
+    # End effector site configuration
+    # AR5 MJCF does not have ee_site defined, so disable end pose publishing
+    enable_end_pose: false
+    ee_site_name: 'ee_site'
+
+    # JointState.effort 数据来源
+    # - actuator_force (默认): MIT PD 控制器输出力矩 τ_ctrl = Kp·(q_des-q) + Kd·(v_des-v) + ff
+    #   对于动量观测器：τ_ctrl 就是控制输入 τ，外力 τ_ext 通过 τ_ctrl 的变化被观测到。
+    #   因为 M·v̇ = τ_ctrl + τ_ext - C·v - g，观测器用 τ = τ_ctrl 即可。
+    # - mj_inverse: mj_forward + mj_inverse 得到的 qfrc_inverse = M·qacc + C·v + g
+    #   注意：这个值不含外力信息！外力通过改变 qacc 已被吸收。
+    #   高刚度 PD 下 qacc≈0，qfrc_inverse≈nle，完全丢失外力。
+    joint_effort_source: actuator_force

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="nexus-arm-v15-right">
+  <compiler angle="radian" meshdir="../meshes" />
+  <asset>
+    <mesh name="base_link" content_type="model/stl" file="base_link.STL" />
+    <mesh name="link1_Link" content_type="model/stl" file="link1_Link.STL" />
+    <mesh name="link2_Link" content_type="model/stl" file="link2_Link.STL" />
+    <mesh name="link3_Link" content_type="model/stl" file="link3_Link.STL" />
+    <mesh name="link4_Link" content_type="model/stl" file="link4_Link.STL" />
+    <mesh name="link5_Link" content_type="model/stl" file="link5_Link.STL" />
+    <mesh name="link6_Link" content_type="model/stl" file="link6_Link.STL" />
+    <mesh name="gripper_Link" content_type="model/stl" file="gripper_Link.STL" />
+    <mesh name="force_Link" content_type="model/stl" file="force_Link.STL" />
+  </asset>
+  <worldbody>
+    <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="base_link" contype="0" conaffinity="0" density="0" group="1" />
+    <body name="link1_Link" pos="-0.00060482 0 0.13105">
+      <inertial pos="-5.21243e-05 -0.00593261 0.0304374" quat="0.703605 0.0831237 -0.0851834 0.700553" mass="0.1" diaginertia="0.000140572 0.000136041 6.47972e-05" />
+      <joint name="link1_Joint" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" actuatorfrcrange="-3.5 3.5" damping="0.175" frictionloss="0.035" armature="0.0035" />
+      <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="link1_Link" />
+      <body name="link2_Link" pos="-2.36911e-05 -0.014493 0.06">
+        <inertial pos="0.000220495 0.03055 0.0525791" quat="0.999744 -0.0107942 -0.00072016 -0.0198603" mass="0.8" diaginertia="0.00276952 0.00271731 0.000390311" />
+        <joint name="link2_Joint" pos="0 0 0" axis="0 1 0" range="-1.22 0.7" actuatorfrcrange="-9 9" damping="0.45" frictionloss="0.09" armature="0.009" />
+        <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="link2_Link" />
+        <body name="link3_Link" pos="0 0.00425 0.109999">
+          <inertial pos="-0.0646027 0.0080423 3.79088e-05" quat="0.0328384 0.706382 -0.0302852 0.70642" mass="0.29" diaginertia="0.00068851 0.00068319 0.00012119" />
+          <joint name="link3_Joint" pos="0 0 0" axis="0 1 0" range="-0.79 1.4" actuatorfrcrange="-3.5 3.5" damping="0.175" frictionloss="0.035" armature="0.0035" />
+          <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="link3_Link" />
+          <body name="link4_Link" pos="-0.109993 0.01025 0">
+            <inertial pos="-0.107366 -5.6761e-05 -0.0796883" quat="0.597467 0.377902 0.377329 0.598203" mass="0.33" diaginertia="0.00153976 0.0014418 0.000217071" />
+            <joint name="link4_Joint" pos="0 0 0" axis="1 0 0" range="-1.22 4.36" actuatorfrcrange="-0.8 0.8" damping="0.05" frictionloss="0.01" armature="0.0008" />
+            <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="link4_Link" />
+            <body name="link5_Link" pos="-0.14939 0 -0.07391">
+              <inertial pos="-0.024187 -0.0891247 0.0585775" quat="0.902879 0.382836 -0.179408 0.0778419" mass="0.37" diaginertia="0.000863331 0.000803316 0.000212513" />
+              <joint name="link5_Joint" pos="0 0 0" axis="-0.38268 0 0.923881" range="-4.36 1.22" actuatorfrcrange="-0.8 0.8" damping="0.05" frictionloss="0.01" armature="0.0008" />
+              <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="link5_Link" />
+              <body name="link6_Link" pos="-0.030615 -0.08 0.07391">
+                <inertial pos="0.021313 0.131774 -0.000873745" quat="0.643337 0.730684 0.0724793 -0.216713" mass="0.315113" diaginertia="0.00135625 0.00134607 0.000142361" />
+                <joint name="link6_Joint" pos="0 0 0" axis="0 1 0" range="-1.61 3.97" actuatorfrcrange="-0.8 0.8" damping="0.05" frictionloss="0.01" armature="0.0008" />
+                <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="link6_Link" />
+                <geom type="mesh" rgba="0.698039 0.698039 0.698039 1" mesh="force_Link" />
+                <body name="gripper_Link" pos="0.032764 0.16888 -0.031841">
+                  <inertial pos="0.0101677 -0.00964993 0.0435073" quat="0.193845 0.732298 -0.437021 0.48495" mass="0.015" diaginertia="7.21138e-07 6.91337e-07 1.37525e-07" />
+                  <joint name="gripper_Joint" pos="0 0 0" axis="0 0 1" range="-0.63 0" actuatorfrcrange="-0.8 0.8" damping="0.05" frictionloss="0.01" armature="0.0008" />
+                  <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="gripper_Link" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
