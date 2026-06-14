@@ -22,6 +22,21 @@ Makefile
 *.bin
 *.out
 
+# Prebuilt libraries for binary-only packages (must be committed)
+!src/nexus_manage/lib/**/*.so
+!src/nexus_manage/lib/**/*.a
+!src/human_data/lib/**/*.so
+!src/human_data/lib/**/*.a
+!src/robot_controller/lib/**/*.so
+!src/robot_controller/lib/**/*.so.*
+!src/robot_controller/lib/**/*.a
+!src/teleop_adapter/lib/**/*.so
+!src/teleop_adapter/lib/**/*.so.*
+!src/teleop_adapter/lib/**/*.a
+!src/teleop_adapter/external/**/*.so
+!src/teleop_adapter/external/**/*.so.*
+!src/teleop_adapter/external/**/*.a
+
 # Python
 __pycache__/
 *.pyc
